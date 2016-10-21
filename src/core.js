@@ -8,17 +8,22 @@ function DropDown(){
 }
 
 Component.inherito(DropDown, {
-  
+  init(){},
+  init(){},
+  init(){},
+  //
+  render(){},
+  renderOptions(){},
+  //
   handleEvent(){},
+  //
   click(){},
   focusin(){},
   focusout(){},
   change(){},
+  //
   open(){},
   initTrigger(){},
-  renderOptions(){},
-  render(){},
-  renderOptions(){},
   close(){},
 }, {
 

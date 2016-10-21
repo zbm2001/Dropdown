@@ -15,19 +15,37 @@ textarea {
 </head>
 
 <body>
-<h2>单选项</h2>
+<!-- <a>Hello</a>
+<script>
+
+function setAnchorDownload(dataUrl, filename, anchorElement){
+  anchorElement.href = dataUrl;
+  anchorElement.download = filename;
+}
+function anchorDownload(dataUrl, filename){
+  var anchorElement = document.createElement('a');
+  setAnchorDownload(dataUrl, filename, anchorElement);
+  document.body.appendChild(anchorElement);
+  anchorElement.click();
+  document.body.removeChild(anchorElement);
+  anchorElement = null;
+}
+
+setAnchorDownload('data:application/vnd.ms-excel,' + encodeURIComponent('<table border="1" align="center" cellpadding="6"><tr><td>abc</td></tr></table>'), '测试下载.xls', document.getElementsByTagName('a')[0]);
+</script>
 <form>
   <input name="btn">
   <button type="button" name="btn" value="button">按钮</button>
   <button name="submitBtn">提交</button>
-</form>
+</form> -->
+<h2>单选项</h2>
 <textarea><div class="dropdown">
-  <button class="dropdown-trigger" name="value" value="" data-type="select-one"><span class="text">请选择</span><i class="arrow"></i></button>
+  <button class="dropdown-trigger" name="value" value="" data-input="select-one"><span class="text">请选择</span><i class="arrow"></i></button>
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
     <h2 class="optgroup-label"></h2>
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-radio">
           <input type="radio" name="value" value="opt1">
@@ -46,12 +64,12 @@ textarea {
 <textarea><div class="dropdown open">
   <!-- 若下拉菜单不在dropdown容器内、并且位于form元素内，就创建
   <input type="hidden" name="value" value="opt1"> -->
-  <button type="button" class="dropdown-trigger" name="value" value="opt1" data-type="select-one"><span class="text">选项1</span><i class="arrow"></i></button>
+  <button type="button" class="dropdown-trigger" name="value" value="opt1" data-input="select-one"><span class="text">选项1</span><i class="arrow"></i></button>
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
     <h2 class="optgroup-label"></h2>
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-radio">
           <input type="radio" name="value" value="">
@@ -73,12 +91,12 @@ textarea {
 </textarea>
 <h2>多选项</h2>
 <textarea><div class="dropdown">
-  <button type="button" class="dropdown-trigger" name="value" value="" data-type="select-multiple"><span class="text">请选择</span><i class="arrow"></i></button>
+  <button type="button" class="dropdown-trigger" name="value" value="" data-input="select-multiple"><span class="text">请选择</span><i class="arrow"></i></button>
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
     <h2 class="optgroup-label"></h2>
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-checkbox">
           <input type="checkbox" name="value" value="opt1">
@@ -100,13 +118,13 @@ textarea {
   <input type="hidden" name="value" value="opt2"> -->
   <!-- placeholder属性用来空选项时的占位文字，value=""
   文字超出显示省略号，超过一个选中项时，用小角标将计数显示在右上角 --> 
-  <button type="button" class="dropdown-trigger" name="value" data-selected-options="[{&quot;text&quot;:&quot;&quot;选项1&quot;,&quot;value&quot;:&quot;&quot;opt1&quot;},{&quot;text&quot;:&quot;&quot;选项2&quot;,&quot;value&quot;:&quot;&quot;opt2&quot;}]" value="opt1,opt2" data-type="select-multiple" placeholder="请选择"><span class="text">选项1, 选项2</span><i class="arrow"></i><i class="tag-count">2</i></button> 
+  <button type="button" class="dropdown-trigger" name="value" data-selected-options="[{&quot;text&quot;:&quot;&quot;选项1&quot;,&quot;value&quot;:&quot;&quot;opt1&quot;},{&quot;text&quot;:&quot;&quot;选项2&quot;,&quot;value&quot;:&quot;&quot;opt2&quot;}]" value="opt1,opt2" data-input="select-multiple" placeholder="请选择"><span class="text">选项1, 选项2</span><i class="arrow"></i><i class="tag-count">2</i></button> 
   <i class="tag-count">2</i> 
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
     <h2 class="optgroup-label"></h2>
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-checkbox checked">
           <input type="checkbox" name="value" value="opt1" checked>
@@ -123,11 +141,11 @@ textarea {
 </textarea>
 <h2>可输入单选项</h2>
 <textarea><div class="dropdown">
-  <input class="dropdown-trigger" value="" data-name="value" data-type="input-select-one">
+  <input class="dropdown-trigger" value="" data-name="value" data-input="input-select-one">
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-radio">
           <input type="radio" name="value" value="opt1">
@@ -146,11 +164,11 @@ textarea {
 <textarea><div class="dropdown">
   <!-- 若下拉菜单不在dropdown容器内、并且位于form元素内，就创建
   <input type="hidden" name="value" value="opt1"> -->
-  <input class="dropdown-trigger" data-type="input-select-one" value="选项1" data-selected-option="{&quot;text&quot;:&quot;&quot;选项1&quot;,&quot;value&quot;:&quot;&quot;opt1&quot;}">
+  <input class="dropdown-trigger" data-input="input-select-one" value="选项1" data-selected-option="{&quot;text&quot;:&quot;&quot;选项1&quot;,&quot;value&quot;:&quot;&quot;opt1&quot;}">
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-radio checked">
           <input type="checkbox" name="value" value="opt1" checked>
@@ -167,11 +185,11 @@ textarea {
 </textarea>
 <h2>可输入多选项</h2>
 <textarea><div class="dropdown">
-  <input class="dropdown-trigger" name="value" value="" data-type="input-select-multiple">
+  <input class="dropdown-trigger" name="value" value="" data-input="input-select-multiple">
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-checkbox">
           <input type="checkbox" name="value" value="opt1">
@@ -198,11 +216,11 @@ textarea {
   文字超出显示省略号，超过一个选中项时，用小角标将计数显示在右上角
   <div class="selected-options"><input type="hidden" name="value" value="opt1"><input type="hidden" name="value" value="opt2"><span>选项1, 选项2</span><i class="tag-count">2</i></div> -->
   
-  <input class="dropdown-trigger" name="value" data-type="input-select-multiple" ellipsis value="" data-selected-options="[{&quot;text&quot;:&quot;&quot;选项1&quot;,&quot;value&quot;:&quot;&quot;opt1&quot;},{&quot;text&quot;:&quot;&quot;选项2&quot;,&quot;value&quot;:&quot;&quot;opt2&quot;}]">
+  <input class="dropdown-trigger" name="value" data-input="input-select-multiple" ellipsis value="" data-selected-options="[{&quot;text&quot;:&quot;&quot;选项1&quot;,&quot;value&quot;:&quot;&quot;opt1&quot;},{&quot;text&quot;:&quot;&quot;选项2&quot;,&quot;value&quot;:&quot;&quot;opt2&quot;}]">
   <!-- 下拉菜单面板 -->
   <div class="dropdown-panel"> 
     <!-- 下拉选项组，可多个并存 -->
-    <ul class="dropdown-optgroup">
+    <ul class="optgroup">
       <li>
         <label class="label-checkbox checked">
           <input type="checkbox" name="value" value="opt1" checked>
